@@ -7,8 +7,6 @@
 <body>
 <div id="map"></div>
 <script>
-    // Detect the API before using it
-
     navigator.geolocation.getCurrentPosition(
         function(position) {
             alert("Lat: " + position.coords.latitude + "\nLon: " + position.coords.longitude);

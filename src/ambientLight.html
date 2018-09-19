@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AmbientLight</title>
+</head>
+<body>
+<h1 id="lightLevel"></h1>
+<script>
+    window.addEventListener('devicelight', function(event) {
+        const luminosity = event.value;
+        document.getElementById("lightLevel").innerHtml =  luminosity;
+    alert(luminosity);
+});
+</script>
+</body>
+</html>

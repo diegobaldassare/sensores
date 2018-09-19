@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h2>Magnetometer (orientation)</h2>
+<h2>Gyroscope (orientation)</h2>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Cursor_Flecha_4.svg/1024px-Cursor_Flecha_4.svg.png">
 <h1 id="dataAlpha"></h1>
 <h1 id="dataBeta"></h1>
@@ -22,7 +22,7 @@
         document.getElementById("dataBeta").innerHTML = 'Beta: ' + event.beta;
         document.getElementById("dataGamma").innerHTML = 'Gamma: ' + event.gamma;
 
-        var imageElem = document.getElementsByTagName('img')[0];
+        const imageElem = document.getElementsByTagName('img')[0];
 
         imageElem.style.webkitTransform = 'rotateZ(' + event.alpha + 'deg) rotateX(' + event.beta + 'deg) rotateY(' + event.gamma + 'deg)';
     }

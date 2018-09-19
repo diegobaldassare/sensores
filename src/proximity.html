@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proximity</title>
+</head>
+<body>
+<h1 id="max"></h1>
+<h1 id="min"></h1>
+<h1 id="actual"></h1>
+<script>
+    window.addEventListener('deviceproximity', function(event) {
+        // The maximum distance the sensor covers (in cm).
+        document.getElementById("max").innerHTML = 'Measures up to ' + event.max + ' cm';
+
+
+        // The minimum distance the sensor covers (in cm).
+        document.getElementById("min").innerHTML =  'Measures from ' + event.min + ' cm';
+
+        // The device proximity (in cm).
+        document.getElementById("proximity").innerHTML = event.value;
+    });
+
+    // An event listener for a UserProximityEvent.
+    window.addEventListener('userproximity', function(event) {
+        if (event.near) {
+            document.body.style.backgroundColor = "red";
+        } else {
+            document.body.style.backgroundColor = "white";
+        }
+    });
+</script>
+</body>
+</html>
