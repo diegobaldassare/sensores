@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geolocation</title>
+</head>
+<body>
+<div id="map"></div>
+<script>
+    // Detect the API before using it
+
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            alert("Lat: " + position.coords.latitude + "\nLon: " + position.coords.longitude);
+        },
+        function(error){
+            alert(error.message);
+        }, {
+            enableHighAccuracy: true
+            ,timeout : 5000
+        }
+    );
+</script>
+</body>
+</html>

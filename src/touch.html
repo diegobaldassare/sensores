@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" style="text-align: center;">
+<head>
+    <meta charset="UTF-8">
+    <title>Touch</title>
+</head>
+<body>
+<h1 style="font-size: 3000%" id="touch-count"></h1>
+<script>
+    var handleTouchEvent = function(event) {
+
+        // Get the list of all touches currently on the screen
+
+        var allTouches = event.touches,
+            allTouchesLength = allTouches.length,
+
+            // Get a reference to an element on the page to write the total number of touches
+            // currently on the screen into
+
+            touchCountElem = document.getElementById("touch-count");
+
+        // Prevent the default browser action from occurring when the user touches and
+        // holds their finger to the screen
+
+        if (event.type === 'touchstart') {
+            event.preventDefault();
+        }
+
+        // Write the number of current touches onto the page
+
+        touchCountElem.innerHTML = allTouchesLength;
+    };
+
+    // Assign the event handler to execute when a finger touches ('touchstart') or is removed from ('touchend') the screen
+
+    window.addEventListener('touchstart', handleTouchEvent, false);
+    window.addEventListener('touchend', handleTouchEvent, false);
+</script>
+</body>
+</html>

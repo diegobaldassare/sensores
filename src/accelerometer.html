@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accelerometer</title>
+</head>
+<body>
+<h1 id="dataXWithGravity"></h1>
+<h1 id="dataYWithGravity"></h1>
+<h1 id="dataZWithGravity"></h1>
+<script>
+    if(window.DeviceMotionEvent) {
+        window.addEventListener("devicemotion", motion, false);
+    } else {
+        console.log("DeviceMotionEvent is not supported");
+    }
+    function motion(event){
+        document.getElementById("dataXWithGravity").innerHTML = event.accelerationIncludingGravity.x;
+        document.getElementById("dataYWithGravity").innerHTML = event.accelerationIncludingGravity.y;
+        document.getElementById("dataZWithGravity").innerHTML = event.accelerationIncludingGravity.z;
+    }
+</script>
+</body>
+</html>
+
+<!--x: Represents the axis from West to East-->
+<!--y: Represents the axis from South to North-->
+<!--z: Represents the axis perpendicular to the ground-->

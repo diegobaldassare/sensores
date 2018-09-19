@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magnetometer</title>
+</head>
+<body>
+
+<h2>Magnetometer (orientation)</h2>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Cursor_Flecha_4.svg/1024px-Cursor_Flecha_4.svg.png">
+<h1 id="dataAlpha"></h1>
+<h1 id="dataBeta"></h1>
+<h1 id="dataGamma"></h1>
+<script>
+    if(window.DeviceOrientationEvent) {
+        window.addEventListener("deviceorientation", orientation, false);
+    } else {
+        console.log("DeviceMotionEvent is not supported");
+    }
+    function orientation(event){
+        document.getElementById("dataAlpha").innerHTML = 'Alpha: ' + event.alpha;
+        document.getElementById("dataBeta").innerHTML = 'Beta: ' + event.beta;
+        document.getElementById("dataGamma").innerHTML = 'Gamma: ' + event.gamma;
+
+        var imageElem = document.getElementsByTagName('img')[0];
+
+        imageElem.style.webkitTransform = 'rotateZ(' + event.alpha + 'deg) rotateX(' + event.beta + 'deg) rotateY(' + event.gamma + 'deg)';
+    }
+</script>
+</body>
+</html>
+
+<!--The alpha value represents the motion of the device around the z axis, represented in degrees with values ranging from 0 to 360.-->
+<!--The beta value represents the motion of the device around the x axis, represented in degrees with values ranging from -180 to 180.  This represents a front to back motion of the device.-->
+<!--The gamma value represents the motion of the device around the y axis, represented in degrees with values ranging from -90 to 90. This represents a left to right motion of the device.-->
