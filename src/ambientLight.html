@@ -5,12 +5,43 @@
     <title>AmbientLight</title>
 </head>
 <body>
-<h1 id="lightLevel"></h1>
+<h1  style="font-size: 2000%" id="lightLevel"></h1>
 <script>
     window.addEventListener('devicelight', function(event) {
         const luminosity = event.value;
-        document.getElementById("lightLevel").innerHtml =  luminosity;
-    alert(luminosity);
+        let lumVal = document.getElementById("lightLevel");
+        if (luminosity <= 50) {
+            document.body.style.backgroundColor = "#000000";
+            document.getElementById("lightLevel").style.color = "#ffffff";
+        } else  if (luminosity <= 100) {
+            document.body.style.backgroundColor = "#232323";
+            document.getElementById("lightLevel").style.color = "#d9d0e1";
+        } else  if (luminosity <= 150) {
+            document.body.style.backgroundColor = "#373737";
+            document.getElementById("lightLevel").style.color = "#c3b7b4";
+        } else  if (luminosity <= 200) {
+            document.body.style.backgroundColor = "#44404b";
+            document.getElementById("lightLevel").style.color = "#a9a3af";
+        } else  if (luminosity <= 250) {
+            document.body.style.backgroundColor = "#696060";
+            document.getElementById("lightLevel").style.color = "#95919b";
+        } else  if (luminosity <= 300) {
+            document.body.style.backgroundColor = "#95919b";
+            document.getElementById("lightLevel").style.color = "#696060";
+        } else  if (luminosity <= 350) {
+            document.body.style.backgroundColor = "#a9a3af";
+            document.getElementById("lightLevel").style.color = "#44404b";
+        } else  if (luminosity <= 400) {
+            document.body.style.backgroundColor = "#c3b7b4";
+            document.getElementById("lightLevel").style.color = "#373737";
+        } else  if (luminosity <= 450) {
+            document.body.style.backgroundColor = "#d9d0e1";
+            document.getElementById("lightLevel").style.color = "#232323";
+        } else {
+            document.body.style.backgroundColor = "#ffffff";
+            document.getElementById("lightLevel").style.color = "#000000";
+        }
+        lumVal.innerHTML = luminosity;
 });
 </script>
 </body>
