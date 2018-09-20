@@ -2,7 +2,7 @@
 
 1. [Accelerometer](http://github.com/diegobaldassare/sensores/src/accelerometer.html)
    
-2. [Ambient light] (http://github.com/diegobaldassare/sensores/src/ambientLight.html)
+2. [Ambient light](http://github.com/diegobaldassare/sensores/src/ambientLight.html)
 
 3. [Geolocation](http://github.com/diegobaldassare/sensores/src/geolocation.html)
 
