@@ -5,11 +5,18 @@
     <title>Geolocation</title>
 </head>
 <body>
+<h1 id="text"></h1>
 <div id="map"></div>
 <script>
     navigator.geolocation.getCurrentPosition(
         function(position) {
-            alert("Lat: " + position.coords.latitude + "\nLon: " + position.coords.longitude);
+
+            let mapElem = document.getElementById("map");
+            let text = document.getElementById("text");
+
+            text.innerHTML = "Lat: " + position.coords.latitude + "\nLon: " + position.coords.longitude;
+            mapElem.innerHTML = '<img src="http://maps.googleapis.com/maps/api/staticmap?markers=' +
+                position.coords.latitude + ',' + position.coords.longitude + '&zoom=15&size=300x300&sensor=false" />';
         },
         function(error){
             alert(error.message);

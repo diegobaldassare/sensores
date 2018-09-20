@@ -6,18 +6,61 @@
 </head>
 <body>
 <h1 id="dataXWithGravity"></h1>
+<div class="XBar"></div>
 <h1 id="dataYWithGravity"></h1>
+<div class="YBar"></div>
 <h1 id="dataZWithGravity"></h1>
+<div class="ZBar"></div>
+
+<style>
+    .XBar {
+        background: linear-gradient(to right, #f90011 var(--scrollX), transparent 0) no-repeat;
+        position: fixed;
+        width: 100%;
+        height: 4px;
+        z-index: 1;
+    }
+
+    .YBar {
+        background: linear-gradient(to right, #0f00f9 var(--scrollY), transparent 0) no-repeat;
+        position: fixed;
+        width: 100%;
+        height: 4px;
+        z-index: 1;
+    }
+
+    .ZBar {
+        background: linear-gradient(to right, #00f906 var(--scrollZ), transparent 0) no-repeat;
+        position: fixed;
+        width: 100%;
+        height: 4px;
+        z-index: 1;
+    }
+</style>
 <script>
+
     if(window.DeviceMotionEvent) {
         window.addEventListener("devicemotion", motion, false);
     } else {
         console.log("DeviceMotionEvent is not supported");
     }
     function motion(event){
-        document.getElementById("dataXWithGravity").innerHTML = event.accelerationIncludingGravity.x;
-        document.getElementById("dataYWithGravity").innerHTML = event.accelerationIncludingGravity.y;
-        document.getElementById("dataZWithGravity").innerHTML = event.accelerationIncludingGravity.z;
+        let xValue = document.getElementById("dataXWithGravity");
+        let xBar = document.querySelector('.XBar');
+        let yValue = document.getElementById("dataYWithGravity");
+        let yBar = document.querySelector('.YBar');
+        let zValue = document.getElementById("dataZWithGravity");
+        let zBar = document.querySelector('.ZBar');
+
+        xValue.innerHTML = event.accelerationIncludingGravity.x.toFixed(3);
+        xBar.style.setProperty('--scrollX', event.accelerationIncludingGravity.x.toFixed(3) + '%');
+
+        yValue.innerHTML = event.accelerationIncludingGravity.y.toFixed(3);
+        yBar.style.setProperty('--scrollY', event.accelerationIncludingGravity.y.toFixed(3) + '%');
+
+        zValue.innerHTML = event.accelerationIncludingGravity.z.toFixed(3);
+        zBar.style.setProperty('--scrollZ', event.accelerationIncludingGravity.z.toFixed(3) + '%');
+
     }
 </script>
 </body>
